@@ -28,9 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-pgu)x+1o1+7s4y=y)2kkf0v%&(ofugfdy*&5bg*lsi22*-(lk&"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "api",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,9 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleWare",
 ]
+
 
 ROOT_URLCONF = "my_dashbaord.urls"
 
@@ -131,3 +134,7 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+CORS_ALLOWED_ORIGINS=["http://localhost:5173"]
+
+#CORS_ALLOWED_ALL_ORIGINS=TrueUE
